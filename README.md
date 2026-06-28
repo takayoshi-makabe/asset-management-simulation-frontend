@@ -1,13 +1,14 @@
 ## asset-management-simulation-frontend
 
 - 自作のWebAppである資産運用シミュレーションのフロントエンドに関するレポジトリです。
-- バックエンドのレポジトリは [こちら](https://github.com/spider-man-tm/asset-management-simulation-backend)をご参照ください。
+- バックエンドのレポジトリは [こちら](https://github.com/takayoshi-makabe/asset-management-simulation-backend)をご参照ください。
 
 ![fig](architect.png)
 
 <br />
 
 ### Overview
+
 - こちらのプロジェクトは[Vuetify3公式ドキュメント](https://vuetifyjs.com/en/getting-started/installation/)をベースに作成しています。
 - 各グラフの描画にHighChartsを利用しています。
 - Firebase Hosting へデプロイしています。
@@ -16,27 +17,34 @@
 - mainブランチへpush、あるいはPRがマージされたタイミングでGitHub Actionsを利用した本番環境への自動デプロイが実施されます。
 
 ### Usage
+
 - 環境変数の設定
   - プロジェクト直下に`.env.{hoge}.local`のようにファイルを用意します。
-  ``` shell
+
+  ```shell
   # 以下は例、本番用の.envはGitHubActionsを使った自動デプロイを想定しているためここでは定義していない
   .
   ├── .env.development.local
   └── .env.staging.local
   ```
+
   - 以下のような形で環境変数`VITE_BACKEND_URL`、および`VITE_GTAG_ID`を定義します
-  ``` shell
+
+  ```shell
   # .env.development.local
   VITE_BACKEND_URL = http://127.0.0.1:9000
   VITE_GTAG_ID = G-XXXXXXXXXX
   ```
-  ``` shell
+
+  ```shell
   # .env.production.local (ステージング環境でのBACKENDエンドポイント)
   VITE_BACKEND_URL = https://hoge-fuga.run.app
   VITE_GTAG_ID = G-XXXXXXXXXX
   ```
+
   - `package.json`を編集します
-  ``` json
+
+  ```json
   "scripts": {
     // Viteで開発用サーバーを起動する際は.env.development.localがデフォルトでloadされる
     "dev": "vite",
@@ -47,12 +55,14 @@
     "preview": "vite preview"
   },
   ```
+
   - （以下、補足）
-    - GitHub Actionsを利用した自動デプロイでは.gitignoreされた.env.**.localファイルを使用することはできません
+    - GitHub Actionsを利用した自動デプロイでは.gitignoreされた.env.\*\*.localファイルを使用することはできません
     - そこでビルド環境上で.envファイルを直接作成してしまうことにしています（`firebase-hosting-pull-request.yaml`参照）
 
--  Project setup
-  - 必要なパッケージをインストールします
+- Project setup
+- 必要なパッケージをインストールします
+
 ```
 # yarn
 yarn
@@ -66,6 +76,7 @@ pnpm install
 
 - Compiles and hot-reloads for development
   - Viteを`--mode local`で動かします
+
 ```
 # yarn
 yarn dev
@@ -78,6 +89,7 @@ pnpm dev
 ```
 
 - Compiles and minifies for production
+
 ```
 # yarn
 yarn build
@@ -98,24 +110,32 @@ See [Configuration Reference](https://vitejs.dev/config/).
 ## Deployment
 
 ### GitHub Actions
+
 - このレポジトリをクローンし、自身のレポジトリとして改めてpush作成します。
 - Firebaseプロジェクトを作成
   - backend側でGoogle Cloud Runを使用するのでそちらを同じGCPプロジェクトに紐づく形で作成
 - Firebase アプリを新規作成（Webアプリを選択）
 - Firebase SDKをインストール
-``` shell
+
+```shell
 npm install firebase
 ```
+
 - Firebase CLIをインストール
-``` shell
+
+```shell
 npm install -g firebase-tools
 ```
+
 - Firebaseへログイン
-``` shell
+
+```shell
 firebase login
 ```
+
 - firebaseプロジェクトとして初期化
-``` shell
+
+```shell
 firebase init
 ```
 
