@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col cols="3" md="2">
-          <img alt="Vue logo" src="./assets/logo.png" class="logo">
+          <img alt="Vue logo" src="./assets/logo.png" class="logo" />
         </v-col>
         <v-col cols="9" md="10">
           <h1>資産運用シミュレーション</h1>
@@ -11,13 +11,15 @@
       </v-row>
       <router-view></router-view>
 
-      <v-footer
-        class="bg-indigo-lighten-1 text-center d-flex flex-column"
-      >
+      <v-footer class="bg-indigo-lighten-1 text-center d-flex flex-column">
         <v-row>
-          <a href="https://spider-man-tm.github.io/" class="footer__contents">About me</a>
+          <a href="https://takayoshi-makabe.github.io/" class="footer__contents"
+            >About me</a
+          >
           <router-link to="/" class="footer__contents">ホーム</router-link>
-          <router-link to="policy" class="footer__contents">プライバシーポリシー</router-link>
+          <router-link to="policy" class="footer__contents"
+            >プライバシーポリシー</router-link
+          >
         </v-row>
         <div>
           <v-btn
@@ -39,18 +41,21 @@
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
 
-  data () {
+  data() {
     return {
       icons: [
-        { icon: 'mdi-github', url: 'https://github.com/spider-man-tm' },
-        { icon: 'mdi-twitter', url: 'https://twitter.com/Takayoshi_ma' },
-        { icon: 'mdi-linkedin', url: 'https://www.linkedin.com/in/takayoshi-makabe-00376718b/' }
-      ]
-    }
-  }
-}
+        { icon: "mdi-github", url: "https://github.com/takayoshi-makabe" },
+        { icon: "mdi-twitter", url: "https://twitter.com/Takayoshi_ma" },
+        {
+          icon: "mdi-linkedin",
+          url: "https://www.linkedin.com/in/takayoshi-makabe-00376718b/",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -63,14 +68,20 @@ h1 {
   font-size: clamp(17px, 2.5vw, 50px);
 }
 h1:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0em;
   width: 100%;
   height: 10px;
   margin: -15px 0;
-  background: repeating-linear-gradient(-45deg, rgb(166, 17, 7), rgb(191, 5, 5) 2px, white 2px, white 4px);
+  background: repeating-linear-gradient(
+    -45deg,
+    rgb(166, 17, 7),
+    rgb(191, 5, 5) 2px,
+    white 2px,
+    white 4px
+  );
 }
 .footer__contents {
   color: white;
@@ -87,7 +98,7 @@ h1:after {
 }
 .logo {
   text-align: left;
-  margin-top: 1.0em;
+  margin-top: 1em;
   margin-bottom: 2em;
   margin-left: 2em;
   width: 100%;
